@@ -10,7 +10,7 @@ ML — Тищенко Дмитрий Александрович
 
 # Структура прототипа
 ## Дизайн пайплайна поиска по фото
-![design photo search pipeline](docs/assets/hack-cp-2024-april-pipeline.drawio.png)
+![design photo search pipeline](docs/assets/hack-cp-2024-apri-search-pipeline.drawio.png)
 
 ## Дизайн пайплайна обобщения текста
 ![design image text generalization](docs/assets/hack-cp-2024-april-generalize.drawio.png)
