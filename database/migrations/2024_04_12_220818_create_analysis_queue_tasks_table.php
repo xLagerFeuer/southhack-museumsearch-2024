@@ -16,7 +16,8 @@ return new class extends Migration
 
             $table->string('image_path')->nullable();
             $table->date('creation_date')->nullable();
-            $table->string('author')->nullable();
+
+            $table->bigInteger('author_id');
 
             $table->boolean('is_ml_done')->default(false);
             $table->boolean('is_ml_sent')->default(false);

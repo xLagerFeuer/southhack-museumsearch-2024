@@ -12,7 +12,7 @@ class AnalysisQueueTask extends Model
     protected $fillable = [
         'image_path',
         'creation_date',
-        'author',
+        'author_id',
         'is_ml_done',
         'is_ml_sent',
     ];
@@ -20,6 +20,11 @@ class AnalysisQueueTask extends Model
     public function results()
     {
         return $this->hasMany(AnalysisQueueTaskResults::class, 'task_id');
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(Author::class, 'author_id');
     }
 
     public function setMlDone(bool $isDone = true): void

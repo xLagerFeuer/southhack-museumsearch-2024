@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('analysis_queue_task_results', function (Blueprint $table) {
             $table->id();
 
-            $table->bigInteger('task_id')->unsigned();
-            $table->foreign('task_id')->references('id')->on('analysis_queue_tasks')->onDelete('cascade');
+            $table->bigInteger('task_id');
 
             $table->string('name');
             $table->text('description');
