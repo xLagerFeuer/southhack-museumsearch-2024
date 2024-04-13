@@ -58,19 +58,6 @@ class SearchForm extends Component
 
     public function render()
     {
-        if ($this->status == "waiting") {
-            $tmp = AnalysisQueueTask::find($this->currentTask->id);
-            if ($tmp->is_ml_sent && !$tmp->is_ml_done) {
-                $this->status = "computing";
-            }
-        } elseif ($this->status == "computing") {
-            $tmp = AnalysisQueueTask::find($this->currentTask->id);
-            if ($tmp->is_ml_sent && $tmp->is_ml_done) {
-                $this->status = "done";
-                $this->currentTask = $tmp;
-            }
-        }
-
         $authors = Author::all();
         return view('livewire.client.search-form', compact('authors'));
     }
