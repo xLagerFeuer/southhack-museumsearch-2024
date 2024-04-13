@@ -17,4 +17,5 @@ Route::middleware([
 
     Route::get('/museum', 'App\Http\Controllers\MuseumController@index')->name('museum.index');
     Route::get('/museum/search', 'App\Http\Controllers\SearchController@viewPredictionPage')->name('museum.search');
+    Route::get('/author', 'App\Http\Controllers\AuthorController@index')->name('author.indexs');
 });

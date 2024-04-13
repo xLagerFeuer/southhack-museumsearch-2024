@@ -24,6 +24,12 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('author.index') }}" :active="request()->routeIs('author.index')">
+                        Авторы
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('museum.search') }}" :active="request()->routeIs('museum.search')">
                         Поиск
                     </x-nav-link>
@@ -157,6 +163,10 @@
 
             <x-responsive-nav-link href="{{ route('museum.index') }}" :active="request()->routeIs('museum.index')">
                 Музеи
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link href="{{ route('author.index') }}" :active="request()->routeIs('author.index')">
+                Авторы
             </x-responsive-nav-link>
 
             <x-responsive-nav-link href="{{ route('museum.search') }}" :active="request()->routeIs('museum.search')">
