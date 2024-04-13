@@ -45,8 +45,6 @@ class ProcessSendSearchRequests implements ShouldQueue
 
         echo("Task processed successfully! Task to Sent: (" . $task->id . ") from Author: " . $task->author->name);
 
-//        $task->update(['is_ml_sent' => true]);
-
         $response = Http::post($url, $request);
 
         if ($response->successful()) {
