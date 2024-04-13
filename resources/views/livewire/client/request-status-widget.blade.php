@@ -1,5 +1,9 @@
 <div class="flex items-center justify-center w-full space-x-4" wire:poll>
-    <img class="w-full sm:w-full md:w-2/3 lg:w-1/4 rounded-md" src="{{ asset('storage/' . $task->image_path) }}" alt="">
+    <div class="flex flex-col items-center p-0 justify-start space-y-4 w-full sm:w-full md:w-2/3 lg:w-1/4">
+        <img class="rounded-md" src="{{ asset('storage/' . $task->image_path) }}" alt="">
+        <p><b>Автор: </b> {{ $task->author->name }}</p>
+        <p><b>Дата: </b> {{ $task->creation_date }}</p>
+    </div>
     @if($updTask->is_ml_saved)
         <livewire:client.view-search-rquest-results :task="$updTask" />
     @else
