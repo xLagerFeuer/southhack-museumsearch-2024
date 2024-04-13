@@ -11,10 +11,12 @@ class AnalysisQueueTask extends Model
 
     protected $fillable = [
         'image_path',
+        'result',
         'creation_date',
         'author_id',
         'is_ml_done',
         'is_ml_sent',
+        'is_ml_saved',
     ];
 
     public function results()

@@ -48,10 +48,13 @@ class ProcessSendSearchRequests implements ShouldQueue
         $response = Http::post($url, $request);
 
         if ($response->successful()) {
-            $task->update(['is_ml_done' => true]);
+            $task->update(['is_ml_done' => true, 'result' => (string) $response]);
             echo($response);
+            echo("successfully get!");
         } else {
-            $task->update(['is_ml_sent' => false]);
+            // todo: uncomment
+//            $task->update(['is_ml_sent' => false]);
+            echo("filed response");
         }
     }
 }

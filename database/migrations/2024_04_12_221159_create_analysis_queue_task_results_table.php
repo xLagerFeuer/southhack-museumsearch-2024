@@ -16,10 +16,11 @@ return new class extends Migration
 
             $table->bigInteger('task_id');
 
-            $table->string('name');
-            $table->text('description');
-            $table->float('number_of_similarities');
-            $table->string('image_path');
+            $table->string('name')->nullable();
+            $table->text('description')->nullable();
+            $table->string('class')->nullable();
+            $table->string('number_of_similarities')->nullable();
+            $table->string('image_path')->nullable();
 
             $table->timestamps();
         });

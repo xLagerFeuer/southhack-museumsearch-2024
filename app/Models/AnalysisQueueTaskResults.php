@@ -15,6 +15,7 @@ class AnalysisQueueTaskResults extends Model
         'description',
         'number_of_similarities',
         'image_path',
+        'class',
     ];
 
     public function task()
