@@ -15,6 +15,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    // route to MuseumController index
     Route::get('/museum', 'App\Http\Controllers\MuseumController@index')->name('museum.index');
+    Route::get('/museum/search', 'App\Http\Controllers\Controller@viewPredictionPage')->name('museum.search');
 });
