@@ -11,6 +11,48 @@
 # Build/Deploy
 
 <!-- TODO: Дариусу расписать -->
+## Backend / Frontend
+```bash
+git clone https://github.com/xLagerFeuer/southhack-museumsearch-2024.git
+```
+
+```bash
+cd southhack-museumsearch-2024
+```
+
+```bash
+git checkout back-front
+```
+
+Установка пакетов
+```bash
+composer update
+```
+
+```bash
+sudo docker-compose up -d
+```
+
+**Теперь нужно зайти в контейнер**
+Подключение к контейнеру:
+```bash
+sudo docker exec -it <container_id> bash
+```
+
+Миграции:
+```bash
+php artisan migrate
+```
+
+Публикация хранилища:
+```bash
+php artisan storage:link
+```
+
+Опционально, принудительный запуск очереди:
+```bash
+php artisan schedule:work
+```
 
 # Фичи проекта
 
