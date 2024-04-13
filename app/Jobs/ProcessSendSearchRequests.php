@@ -11,6 +11,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use function MongoDB\BSON\toJSON;
 
 class ProcessSendSearchRequests implements ShouldQueue
 {
@@ -30,6 +31,7 @@ class ProcessSendSearchRequests implements ShouldQueue
     public function handle(): void
     {
         $task = AnalysisQueueTask::where('is_ml_done', false)->where('is_ml_sent', false)->orderBy('created_at', 'desc')->first(); // STACK model
+        $task->update(['is_ml_sent' => true]);
 
         $image = base64_encode(Storage::get('public/' . $task->image_path));
 
@@ -43,12 +45,15 @@ class ProcessSendSearchRequests implements ShouldQueue
 
         echo("Task processed successfully! Task to Sent: (" . $task->id . ") from Author: " . $task->author->name);
 
-        $task->update(['is_ml_sent' => true]);
+//        $task->update(['is_ml_sent' => true]);
 
         $response = Http::post($url, $request);
 
         if ($response->successful()) {
-            $task->setMlSent();
+            $task->update(['is_ml_done' => true]);
+            echo($response);
+        } else {
+            $task->update(['is_ml_sent' => false]);
         }
     }
 }
