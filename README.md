@@ -24,6 +24,12 @@ cd southhack-museumsearch-2024
 git checkout back-front
 ```
 
+```bash
+copy .env.dev .env
+```
+
+**После чего настройте ваш .env файл**
+
 Установка пакетов
 ```bash
 composer update
