@@ -49,7 +49,7 @@ class SearchForm extends Component
 //             'image_path' => $this->photo->getClientOriginalName(),
              'image_path' => $path,
              'creation_date' => $this->creationDate,
-             'author_id' => $this->selectedAuthor->id,
+             'author_id' => $this->selectedAuthor,
          ]);
 
         $this->reset(['photo', 'creationDate', 'selectedAuthor', 'newAuthorName']);
