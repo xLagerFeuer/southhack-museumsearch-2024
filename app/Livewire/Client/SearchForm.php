@@ -46,7 +46,6 @@ class SearchForm extends Component
         $path = $this->photo->store('photos', 'public');
 
          $this->currentTask = AnalysisQueueTask::create([
-//             'image_path' => $this->photo->getClientOriginalName(),
              'image_path' => $path,
              'creation_date' => $this->creationDate,
              'author_id' => $this->selectedAuthor,
