@@ -38,7 +38,7 @@ class ProcessSendSearchRequests implements ShouldQueue
         $request = [
             'image' => $image,
             'author' => $task->author->name,
-            'date' => (string) $task->date,
+            'date' => (string) $task->creation_date,
         ];
 
         $url = env('ML_INSTANCE_URL') . '/find_images/';
@@ -52,8 +52,7 @@ class ProcessSendSearchRequests implements ShouldQueue
             echo($response);
             echo("successfully get!");
         } else {
-            // todo: uncomment
-//            $task->update(['is_ml_sent' => false]);
+            $task->update(['is_ml_sent' => false]);
             echo("filed response");
         }
     }
