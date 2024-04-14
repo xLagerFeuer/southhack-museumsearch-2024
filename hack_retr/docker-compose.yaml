@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  ml_app:
+    container_name: ml_app
+    build: 
+      context: ./src/
+      dockerfile: Dockerfile
+    image: "ml_app:latest"
+    ports:
+      - "${APP_PORT}:7000"
+    env_file:
+      - ./.env
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+    volumes:
+      - "./src:/home/root/app"
